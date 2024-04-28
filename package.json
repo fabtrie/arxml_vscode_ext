@@ -1,0 +1,64 @@
+{
+  "name": "arxml",
+  "displayName": "arxml",
+  "description": "ARXML language support",
+  "version": "0.1.0",
+	"publisher": "fabtrie",
+  "repository": {
+		"url": "https://github.com/fabtrie/arxml_vscode_ext"
+	},
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+		"onLanguage:xml",
+		"onCustomEditor:xml-grid-view.gridView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+		"configuration": {
+			"title": "ARXML Language Server",
+			"properties": {
+				"arxmlLanguageServer.ignorePattern": {
+					"type": "array",
+					"items": {
+						 "type": "string"
+					},
+					"default": [],
+					"description": "Pattern of files to be ignored by the language server."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "arxmlLanguageServer.restartLanguageServer",
+				"title": "ARXML: Restart Language Server"
+			}
+		]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}
