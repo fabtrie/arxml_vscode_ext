@@ -1,6 +1,6 @@
 # ARXML language server
 
-This is an extention for Visual Studio Code that provides language support for arxml files
+This is an extension for Visual Studio Code that provides language support for arxml files
 
 ## Features
 
@@ -21,8 +21,44 @@ This extension contributes the following settings:
 
 - `arxmlLanguageServer.ignorePattern`: Allows to define regex pattern with which files can be excluded from indexing. However, this works only for files in a workspace folder. Open files will always be indexed (index will be removed if file is closed)
 
+## XML features
+
+This extension does not provide any normal XML features as they can be obtained using [redhat.vscode-xml](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml).
+
+This will give features like code completion and others (check extension webside).
+
+To achive this, a xml file must be created with the following content:
+
+```
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri
+        name="http://autosar.org/schema/r4.0"
+        uri="file:///<your_path>/AUTOSAR_00052.xsd"
+    />
+</catalog>
+```
+
+The latest xsd can be found here: [AUTOSAR_FO_MMOD_XMLSchema.zip](https://www.autosar.org/fileadmin/standards/R23-11/FO/AUTOSAR_FO_MMOD_XMLSchema.zip)
+
+In vscode settings you need to add the path to the created xml:
+
+```
+"xml.catalogs": [
+    "<your_path>/catalog.xml"
+],
+"xml.symbols.excluded": [
+    "**/*.arxml"
+],
+"files.associations": {
+    "*.arxml": "xml"
+}
+```
+
+`xml.symbols.excluded` will make sure, that the xml extension does not interfere with this one.
+
+Detailed information on the XSD settings can be found here: https://github.com/redhat-developer/vscode-xml/blob/main/docs/Validation.md#xml-catalog-with-xsd
+
 ## Known Issues
 
 - linux support missing
 - better documentation needed
-- explain configuration of XML plugin to get support for AUTOSAR schema
