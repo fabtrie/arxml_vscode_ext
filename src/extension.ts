@@ -1,3 +1,4 @@
+import path from 'path';
 import { Disposable, ExtensionContext, commands, workspace } from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient/node';
 
@@ -19,7 +20,7 @@ export class ArxmlContext implements Disposable {
   
     async activate() {
         const serverOptions:ServerOptions = {
-            command: "C:/workspace/arxml_lang_server/target/release/arxml_lang_server.exe",
+            command: path.join(__dirname, "../arxml_lang_server.exe"),
         }
 		
         const clientOptions: LanguageClientOptions = {

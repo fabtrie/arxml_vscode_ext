@@ -2,7 +2,7 @@
   "name": "arxml",
   "displayName": "arxml",
   "description": "ARXML language support",
-  "version": "0.1.0",
+  "version": "0.2.0",
 	"publisher": "fabtrie",
   "repository": {
 		"url": "https://github.com/fabtrie/arxml_vscode_ext"
