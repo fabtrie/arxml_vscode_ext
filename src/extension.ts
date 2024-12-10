@@ -27,6 +27,9 @@ export class ArxmlContext implements Disposable {
             documentSelector: [{ language: 'xml', pattern: '**/*.arxml' }],
             synchronize: {
                 fileEvents: workspace.createFileSystemWatcher('**/*.arxml')
+            },
+            initializationOptions: {
+                instantSymbolRefresh: workspace.getConfiguration().get('arxmlLanguageServer.instantSymbolRefresh')
             }
             
         };

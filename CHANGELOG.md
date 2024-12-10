@@ -19,3 +19,22 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 
 - support for vendor module path resolving
+
+## 0.3.0
+
+### Added
+
+- ability to update document symbols while typing
+- option to enable/disable instant symbol update
+
+## 0.3.1
+
+### Fixed
+
+- absolute path to language server
+
+## 0.3.2
+
+### Fixed
+
+- crash on parsing miss-formatted arxml files

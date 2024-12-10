@@ -2,7 +2,7 @@
   "name": "arxml",
   "displayName": "arxml",
   "description": "ARXML language support",
-  "version": "0.2.0",
+  "version": "0.3.2",
 	"publisher": "fabtrie",
   "repository": {
 		"url": "https://github.com/fabtrie/arxml_vscode_ext"
@@ -29,7 +29,12 @@
 					},
 					"default": [],
 					"description": "Pattern of files to be ignored by the language server."
-				}
+				},
+        "arxmlLanguageServer.instantSymbolRefresh": {
+          "type": "boolean",
+          "default": false,
+          "description": "If set to true, the language server will refresh the symbol information for the current document on every change."
+        }
 			}
 		},
 		"commands": [
